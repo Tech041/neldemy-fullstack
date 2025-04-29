@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://neldemy-backend.vercel.app/api/$1"
+      "destination": "https://neldemy-server.vercel.app/api/$1"
     },
     {
       "source": "/(.*)",
@@ -15,7 +15,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://nel-app.vercel.app"
+          "value": "https://neldemy-lms.vercel.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
