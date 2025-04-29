@@ -1,11 +1,11 @@
-import { useContext,  } from "react";
-import { AppContext } from "../../context/AppContext"
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import Footer from "../../components/student/Footer";
 
 const MyEnrollmnets = () => {
-  const { enrolledCourses, calculateCourseDuaration,  } =
+  const { enrolledCourses, calculateCourseDuaration, navigate } =
     useContext(AppContext);
- 
+
   return (
     <>
       <div className="md:px-36 px-8 pt-10">
@@ -16,7 +16,7 @@ const MyEnrollmnets = () => {
               <th className="px-4 py-3 font-semibold truncate">Course</th>
               <th className="px-4 py-3 font-semibold truncate">Duration</th>
               {/* <th className="px-4 py-3 font-semibold truncate">Completed</th> */}
-              {/* <th className="px-4 py-3 font-semibold truncate">Status</th> */}
+              <th className="px-4 py-3 font-semibold truncate">Status</th>
             </tr>
           </thead>
           <tbody className="text-gray-700">
@@ -51,25 +51,20 @@ const MyEnrollmnets = () => {
                     `${progressArray[index].lectureCompleted}/${progressArray[index].totalLectures}`}{" "}
                   <span className="">Lectures</span>
                 </td> */}
-                {/* <td className="px-4 py-3 max-sm:text-right">
+                <td className="px-4 py-3 max-sm:text-right">
                   <button
                     onClick={() => navigate("/player/" + course._id)}
                     className="px-3 sm:px-5 py-1.5 sm:py-2 bg-blue-600 hover:bg-blue-500 max-sm:text-xs text-white"
                   >
-                    {progressArray[index] &&
-                    progressArray[index].lectureCompleted /
-                      progressArray[index].totalLectures ===
-                      1
-                      ? "Completed"
-                      : "   On Going"}
+                    Details
                   </button>
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
