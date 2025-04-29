@@ -7,7 +7,10 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 // Middlewares
-const allowedOrigin = ["http://localhost:3000"];
+const allowedOrigin = [
+  "http://localhost:3000",
+  "https://neldemy-lms.vercel.app",
+];
 app.use(cookieParser());
 app.use(express.json());
 app.use(
