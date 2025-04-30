@@ -72,9 +72,7 @@ const Navbar = () => {
                   {isEducator ? "Educator Dashboard" : "Become Educator"}
                 </button> */}
             <Link to={"/my-enrollment"}>My Enrollments</Link>
-            <span className="text-orange-700">
-              {authUser.name.slice(0, 8)}...
-            </span>
+
             <span className="cursor-pointer  group">
               <RiArrowDropDownLine size={30} />
               <span
@@ -105,9 +103,6 @@ const Navbar = () => {
               <Link to={"/my-enrollment"}>
                 <img src={assets.user_icon} width={30} height={40} />
               </Link>
-              <span className="text-orange-700">
-                {authUser.name.slice(0, 8)}...
-              </span>
 
               <span className="cursor-pointer group">
                 <RiArrowDropDownLine size={30} />
