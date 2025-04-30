@@ -8,9 +8,12 @@ export const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
   const [allCourses, setAllCourses] = useState([]);
   const [isEducator, setIsEducator] = useState(true);
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("user"));
-
+  const [authUser, setAuthUser] = useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
   const [enrolledCourses, setEnrolledCourses] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   // For gemini
 
   const [input, setInput] = useState("");
@@ -120,8 +123,10 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const value = {
-    isAuth,
-    setIsAuth,
+    authUser,
+    setAuthUser,
+    isLoggedIn,
+    setIsLoggedIn,
     currency,
     allCourses,
     navigate,

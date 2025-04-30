@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import apiRequest from "../../utils/apiRequest";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { useContext, } from "react";
+import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 
 const loginSchema = z.object({
@@ -16,7 +16,7 @@ const loginSchema = z.object({
 });
 
 const Login = () => {
-  const { setIsAuth,  navigate } = useContext(AppContext);
+  const { navigate } = useContext(AppContext);
   const {
     register,
     reset,
@@ -33,7 +33,8 @@ const Login = () => {
 
         formData
       );
-      setIsAuth(localStorage.setItem("user", res.data));
+      localStorage.setItem("user", JSON.stringify(res.data));
+      console.log(res.data.user);
       toast.success(res.data.message);
       navigate("/");
       reset();
