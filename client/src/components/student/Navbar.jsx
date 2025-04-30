@@ -24,8 +24,11 @@ const Navbar = () => {
   };
   const isCourseListPage = location.pathname.includes("/course-list");
   useEffect(() => {
-    setAuthUser(JSON.parse(localStorage.getItem("user")));
-  }, [logoutUser]);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setAuthUser(storedUser);
+    }
+  }, [setAuthUser]);
   return (
     <header
       className={`${

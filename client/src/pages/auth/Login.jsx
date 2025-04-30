@@ -16,7 +16,7 @@ const loginSchema = z.object({
 });
 
 const Login = () => {
-  const { navigate } = useContext(AppContext);
+  const { navigate, setAuthUser } = useContext(AppContext);
   const {
     register,
     reset,
@@ -33,8 +33,9 @@ const Login = () => {
 
         formData
       );
-      localStorage.setItem("user", JSON.stringify(res.data));
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       console.log(res.data.user);
+      setAuthUser(res.data.user);
       toast.success(res.data.message);
       navigate("/");
       reset();

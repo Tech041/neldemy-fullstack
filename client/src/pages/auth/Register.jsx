@@ -16,7 +16,7 @@ const registerSchema = z.object({
 });
 
 const Register = () => {
-  const { navigate } = useContext(AppContext);
+  const { navigate, setAuthUser } = useContext(AppContext);
 
   const {
     register,
@@ -34,8 +34,9 @@ const Register = () => {
 
         formData
       );
-      localStorage.setItem("user", JSON.stringify(res.data));
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       toast.success(res.data.message);
+      setAuthUser(res.data.newUser);
       navigate("/");
       reset();
     } catch (error) {
