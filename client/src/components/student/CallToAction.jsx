@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CallToAction = () => {
   return (
     <div className="">
-      {/* For interview */}
+      {/* For interview
       <div className="flex flex-col items-center gap-4 pt-10 pb-24 px-8 md:px-0">
         <h1 className="text-xl md:text-4xl text-orange-800 font-semibold ">
           Boost your skills. Take an AI-powered interview now!
@@ -25,7 +25,7 @@ const CallToAction = () => {
             </button>
           </a>
         </div>
-      </div>
+      </div> */}
 
       {/* For chatbot */}
       <div className="flex flex-col items-center gap-4 pt-10 pb-24 px-8 md:px-0">
