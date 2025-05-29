@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { assets, dummyTestimonial } from "../../assets/assets";
-import { AppContext } from "../../context/AppContext";
 
-const Testimonials = ({ course }) => {
-  const { calculateRating } = useContext(AppContext);
+import { assets, dummyTestimonial } from "../../assets/assets";
+
+
+const Testimonials = () => {
+
   return (
     <div className="pb-14 px-8 md:px-0">
       <h2 className=" text-center text-3xl font-medium text-gray-800">

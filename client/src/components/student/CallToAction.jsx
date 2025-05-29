@@ -4,7 +4,7 @@ const CallToAction = () => {
   return (
     <div className="">
       {/* For interview */}
-      <div className="flex flex-col items-center gap-4 pt-10 pb-24 px-8 md:px-0">
+      {/* <div className="flex flex-col items-center gap-4 pt-10 pb-24 px-8 md:px-0">
         <h1 className="text-xl md:text-4xl text-orange-800 font-semibold ">
           Boost your skills. Take an AI-powered interview now!
         </h1>
@@ -25,11 +25,11 @@ const CallToAction = () => {
             </button>
           </a>
         </div>
-      </div>
+      </div> */}
 
       {/* For chatbot */}
       <div className="flex flex-col items-center gap-4 pt-10 pb-24 px-8 md:px-0">
-        <h1 className="text-xl md:text-4xl text-gray-800 font-semibold ">
+        <h1 className="text-xl md:text-4xl text-gray-800 font-semibold text-center">
           Learn everything with our automated online tutor.
         </h1>
         <p className="text-gray-500 sm:text-sm">
