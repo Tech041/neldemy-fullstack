@@ -34,11 +34,15 @@ const Register = () => {
 
         formData
       );
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      toast.success(res.data.message);
-      setAuthUser(res.data.newUser);
-      navigate("/");
-      reset();
+      if (res.data.success) {
+        localStorage.setItem("user", JSON.stringify(res.data.newUser));
+        toast.success(res.data.message);
+        setAuthUser(res.data.newUser);
+        navigate("/");
+        reset();
+      } else {
+        toast.error(res.data.message);
+      }
     } catch (error) {
       console.log("Error registering", error);
       toast.error(error.message);

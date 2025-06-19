@@ -26,19 +26,21 @@ const Login = () => {
 
   const handleLogin = async (formData) => {
     reset();
-    console.log("Login", formData);
     try {
       const res = await apiRequest.post(
         "/auth/login",
 
         formData
       );
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      console.log(res.data.user);
-      setAuthUser(res.data.user);
-      toast.success(res.data.message);
-      navigate("/");
-      reset();
+      if (res.data.success) {
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        setAuthUser(res.data.user);
+        toast.success(res.data.message);
+        navigate("/");
+        reset();
+      } else {
+        toast.error(res.data.message);
+      }
     } catch (error) {
       console.log("Error login in", error);
       toast.error(error.message);

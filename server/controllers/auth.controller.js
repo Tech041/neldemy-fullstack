@@ -50,7 +50,6 @@ export const register = async (req, res) => {
 };
 export const login = async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body);
   try {
     if (!email || !password) {
       return res
@@ -59,11 +58,11 @@ export const login = async (req, res) => {
     }
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "User not found" });
+      return res.json({ message: "User not found" });
     }
-    const isPasswordVerified = bcrypt.compare(password, user.password);
+    const isPasswordVerified = await bcrypt.compare(password, user.password);
     if (!isPasswordVerified) {
-      return res.status(400).json({ message: "Password is incorrect" });
+      return res.json({ message: "Password is incorrect" });
     }
     const token = createToken(user._id);
     res.cookie("token", token, {
