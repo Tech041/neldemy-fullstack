@@ -10,10 +10,7 @@ import helmet from "helmet";
 const app = express();
 
 // Middlewares
-const allowedOrigin = [
-  "http://localhost:3000",
-  "https://neldemy-lms.vercel.app",
-];
+const allowedOrigin = [process.env.LOCAL_HOST, process.env.CLIENT_URL];
 app.use(cookieParser());
 app.use(express.json());
 app.use(
