@@ -24,7 +24,6 @@ const Navbar = () => {
       toast.error(error.message);
     }
   };
-  console.log("USER INFO", authUser);
   const isCourseListPage = location.pathname.includes("/course-list");
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));

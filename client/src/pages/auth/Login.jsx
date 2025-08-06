@@ -12,7 +12,7 @@ const loginSchema = z.object({
     .string()
     .email("Valid email is required")
     .min(1, { message: "Name is required" }),
-  password: z.string().min(1, { message: "Password  is required" }),
+  password: z.string().min(10, { message: "Password  is required" }),
 });
 
 const Login = () => {
@@ -42,8 +42,8 @@ const Login = () => {
         toast.error(res.data.message);
       }
     } catch (error) {
-      console.log("Error login in", error);
-      toast.error(error.message);
+      if (error.status === 429) return toast.error(error?.response?.data);
+      if (error.status === 500) return toast.error("Internal server error");
     }
   };
 

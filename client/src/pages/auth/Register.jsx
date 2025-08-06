@@ -12,7 +12,7 @@ const registerSchema = z.object({
     .string()
     .email("Valid email is required")
     .min(1, { message: "Name is required" }),
-  password: z.string().min(1, { message: "Password  is required" }),
+  password: z.string().min(10, { message: "Password  is required" }),
 });
 
 const Register = () => {
